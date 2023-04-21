@@ -9,6 +9,7 @@
 select
     companyid,
     cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,
+    cast(company_name as {{ dbt_utils.type_string() }}) as company_name,    
     cast({{ adapter.quote('name') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('name') }},
     cast({{ adapter.quote('type') }} as {{ dbt_utils.type_string() }}) as {{ adapter.quote('type') }},
     {{ adapter.quote('value') }},

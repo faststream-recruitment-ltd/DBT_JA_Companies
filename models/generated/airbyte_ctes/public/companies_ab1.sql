@@ -7,7 +7,7 @@
 -- SQL model to parse JSON blob stored in a single column and extract into separated field columns as described by the JSON Schema
 -- depends_on: {{ source('public', '_airbyte_raw_companies') }}
 select
-    {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as name,
+    {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as company_name,
     {{ json_extract_scalar('_airbyte_data', ['owner', 'email'], ['owner_email']) }} as owner_email,
     {{ json_extract_scalar('_airbyte_data', ['owner', 'userId'], ['owner_userId']) }} as owner_userId,
     {{ json_extract_scalar('_airbyte_data', ['owner', 'lastName'], ['owner_lastName']) }} as owner_lastName,
@@ -31,7 +31,6 @@ select
     {{ json_extract_scalar('_airbyte_data', ['updatedBy', 'lastName'], ['updatedBy_lastName']) }} as updatedBy_lastName,
     {{ json_extract_scalar('_airbyte_data', ['updatedBy', 'firstName'], ['updatedBy_firstName']) }} as updatedBy_firstName,
     {{ json_extract_scalar('_airbyte_data', ['updatedBy', 'deleted'], ['updatedBy_deleted']) }} as updatedBy_deleted,
-    {{ json_extract_array('_airbyte_data', ['recruiters'], ['recruiters']) }} as recruiters,
     {{ json_extract_scalar('_airbyte_data', ['primaryAddress', 'url'], ['primaryAddress_url']) }} as primaryAddress_url,
     {{ json_extract_scalar('_airbyte_data', ['primaryAddress', 'city'], ['primaryAddress_city']) }} as primaryAddress_city,
     {{ json_extract_scalar('_airbyte_data', ['primaryAddress', 'name'], ['primaryAddress_name']) }} as primaryAddress_name,
@@ -44,7 +43,6 @@ select
     {{ json_extract_scalar('_airbyte_data', ['primaryAddress', 'postalCode'], ['primaryAddress_postalCode']) }} as primaryAddress_postalCode,
     {{ json_extract_scalar('_airbyte_data', ['primaryAddress', 'countryCode'], ['primaryAddress_countryCode']) }} as primaryAddress_countryCode,
     {{ json_extract_scalar('_airbyte_data', ['legalName'], ['legalName']) }} as legalName,
-    {{ json_extract_array('_airbyte_data', ['custom'], ['custom']) }} as custom,
     {{ json_extract_scalar('_airbyte_data', ['mainContact', 'lastName'], ['mainContact_lastName']) }} as mainContact_lastName,
     {{ json_extract_scalar('_airbyte_data', ['mainContact', 'contactId'], ['mainContact_contactId']) }} as mainContact_contactId,
     {{ json_extract_scalar('_airbyte_data', ['mainContact', 'firstName'], ['mainContact_firstName']) }} as mainContact_firstName,

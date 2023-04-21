@@ -9,6 +9,7 @@
 select
     cast(updatedat as {{ dbt_utils.type_string() }}) as updatedat,
     companyid,
+    cast(company_name as {{ dbt_utils.type_string() }}) as company_name,
     cast(userid as {{ dbt_utils.type_string() }}) as userid,
     cast(email as {{ dbt_utils.type_string() }}) as email,
     cast(firstName as {{ dbt_utils.type_string() }}) as firstName,

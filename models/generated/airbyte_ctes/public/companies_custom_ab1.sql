@@ -8,6 +8,7 @@
 -- depends_on: {{ source('public', '_airbyte_raw_companies') }}
 select
     {{ json_extract_scalar('_airbyte_data', ['companyId'], ['companyId']) }} as companyid,
+    {{ json_extract_scalar('_airbyte_data', ['name'], ['name']) }} as company_name,    
     {{ json_extract_scalar('_airbyte_data', ['updatedAt'], ['updatedAt']) }} as updatedat,
     jsonb_array_elements(jsonb_extract_path(_airbyte_data, 'custom'))->>'name' as name,
     jsonb_array_elements(jsonb_extract_path(_airbyte_data, 'custom'))->>'type' as type,

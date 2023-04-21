@@ -7,7 +7,7 @@
 -- SQL model to cast each column to its adequate SQL type converted from the JSON schema type
 -- depends_on: {{ ref('companies_ab1') }}
 select
-    cast(name as {{ dbt_utils.type_string() }}) as name,
+    cast(company_name as {{ dbt_utils.type_string() }}) as company_name,
     cast(owner_email as {{ dbt_utils.type_string() }}) as owner_email,
     cast(owner_userId as {{ dbt_utils.type_string() }}) as owner_userId,
     cast(owner_lastName as {{ dbt_utils.type_string() }}) as owner_lastName,
@@ -31,7 +31,6 @@ select
     cast(updatedBy_lastName as {{ dbt_utils.type_string() }}) as updatedBy_lastName,
     cast(updatedBy_firstName as {{ dbt_utils.type_string() }}) as updatedBy_firstName,
     cast(updatedBy_deleted as {{ dbt_utils.type_string() }}) as updatedBy_deleted,
-    recruiters,
     cast(primaryAddress_url as {{ dbt_utils.type_string() }}) as primaryAddress_url,
     cast(primaryAddress_city as {{ dbt_utils.type_string() }}) as primaryAddress_city,
     cast(primaryAddress_name as {{ dbt_utils.type_string() }}) as primaryAddress_name,
@@ -43,7 +42,6 @@ select
     cast(primaryAddress_addressId as {{ dbt_utils.type_string() }}) as primaryAddress_addressId,
     cast(primaryAddress_postalCode as {{ dbt_utils.type_string() }}) as primaryAddress_postalCode,
     cast(primaryAddress_countryCode as {{ dbt_utils.type_string() }}) as primaryAddress_countryCode,
-    custom,
     cast(legalName as {{ dbt_utils.type_string() }}) as legalName,
     cast(mainContact_lastName as {{ dbt_utils.type_string() }}) as mainContact_lastName,
     cast(mainContact_contactId as {{ dbt_utils.type_string() }}) as mainContact_contactId,

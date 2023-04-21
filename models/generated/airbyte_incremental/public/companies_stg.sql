@@ -8,7 +8,7 @@
 -- depends_on: {{ ref('companies_ab2') }}
 select
     {{ dbt_utils.surrogate_key([
-        'name',
+        'company_name',
         'owner_email',
         'owner_userId',
         'owner_lastName',
@@ -32,7 +32,6 @@ select
         'updatedBy_lastName',
         'updatedBy_firstName',
         'updatedBy_deleted',
-        array_to_string('recruiters'),
         'primaryAddress_url',
         'primaryAddress_city',
         'primaryAddress_name',
@@ -44,7 +43,6 @@ select
         'primaryAddress_addressId',
         'primaryAddress_postalCode',
         'primaryAddress_countryCode',
-        array_to_string('custom'),
         'legalName',
         'mainContact_lastName',
         'mainContact_contactId',
